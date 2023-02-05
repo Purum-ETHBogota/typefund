@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from './Header'
-// import Footer from './footer'
+import Footer from './Footer'
 
 type Props = { children: any }
 
@@ -22,7 +22,7 @@ const Layout = (props: Props) => {
     <>
       <Header handleWalletConnected={handleWalletConnected} accountConnected={accountConnected} />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
