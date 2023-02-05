@@ -14,15 +14,13 @@ const Layout = (props: Props) => {
     setIsConnected(true);
   }
 
-  console.log('isConnected', isConnected)
-
   const accountConnected = (e: any) => {
     setAccounts(e);
   }
   
   return (
     <>
-      <Header handleWalletConnected={handleWalletConnected} accountConnected={accountConnected} isMember={false} />
+      <Header handleWalletConnected={handleWalletConnected} accountConnected={accountConnected} />
       <main>{children}</main>
       {/* <Footer /> */}
     </>

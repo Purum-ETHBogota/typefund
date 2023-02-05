@@ -1,5 +1,5 @@
 .button {
-    width: 150px;
+    width: 250px;
     height: 30px;
     border-radius: 10px;
     border: 2px solid white;
@@ -10,5 +10,5 @@
 }
 
 .button:disabled {
-    /* cursor: not-allowed; */
+    cursor: not-allowed;
 }

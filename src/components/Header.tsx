@@ -1,19 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 
-const Wallet = dynamic(
-    () => import('./Wallet'),
-    { ssr: false }
-  )
-    
+const Wallet = dynamic(() => import("./Wallet"), { ssr: false });
 
-type Props = { isMember: boolean, handleWalletConnected: any, accountConnected: any };
+type Props = {
+  handleWalletConnected: any;
+  accountConnected: any;
+};
 
 const Header = (props: Props) => {
-    const { isMember, handleWalletConnected, accountConnected } = props;
+  const { handleWalletConnected, accountConnected } = props;
+  const [balance, setBalance] = useState('');
+
   return (
     <div className={styles.headerWrapper}>
       <ul>
@@ -31,19 +32,19 @@ const Header = (props: Props) => {
       </ul>
       <nav className={styles.navMenu}>
         <ul className={styles.navMenu}>
-            <li className={styles.listElement}>
-                <Link href="/">
-                    Fonts
-                </Link>
-            </li>
-            <li className={styles.listElement}>
-                <Link href="/dao">
-                    {isMember ? "DAO" : "Join the DAO"}
-                </Link>
-            </li>
-            <li className={styles.listElement}>
-                <Wallet handleWalletConnected={handleWalletConnected} accountConnected={accountConnected} />
-            </li>
+          <li className={styles.listElement}>
+            <Link href="/">Fonts</Link>
+          </li>
+          <li className={styles.listElement}>
+            <Link href="/dao">{ Number(balance) >= 0.1 ? "DAO" : "Join the DAO"}</Link>
+          </li>
+          <li className={styles.listElement}>
+            <Wallet
+              handleWalletConnected={handleWalletConnected}
+              accountConnected={accountConnected}
+              setBalance={setBalance}
+            />
+          </li>
         </ul>
       </nav>
     </div>
