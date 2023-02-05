@@ -2,6 +2,10 @@
 
 #hardhat
 hardhat/node_modules
+hardhat/.env
+hardhat/cache
+hardhat/artifacts
+
 
 # dependencies
 /node_modules
