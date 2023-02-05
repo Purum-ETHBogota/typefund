@@ -1,0 +1,22 @@
+.headerWrapper {
+    margin: 30px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listElement {
+    list-style-type: none;
+    margin-right: 45px;
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    min-width: 100px;
+}
