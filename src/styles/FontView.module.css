@@ -16,3 +16,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.buttonRedirect {
+    background-color: #3273f6;
+    text-transform: uppercase;
+    color: white;
+    padding: 12px 25px;
+    float: right;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}

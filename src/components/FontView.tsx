@@ -4,6 +4,7 @@ import CustomText from "./CustomText";
 import SizeSlider from "./SizeSlider";
 import ItalicSelector from "./ItalicSelector";
 import styles from "../styles/FontView.module.css";
+import Link from "next/link";
 
 type Props = {
   font: {
@@ -20,6 +21,8 @@ const FontView = (props: Props) => {
   const [size, setSize] = useState(60);
   const [weight, setWeight] = useState(400);
   const [customText, setCustomText] = useState("");
+
+  const routeName = font.name.toLowerCase().split(' ').join('-');
 
   return (
     <div
@@ -64,6 +67,9 @@ const FontView = (props: Props) => {
       >
         {customText ? customText : font.name}
       </h1>
+      <Link href={`/fonts/${routeName}`}>
+        <button className={styles.buttonRedirect}>Buy - From 35 FIL</button>
+      </Link>
     </div>
   );
 };
