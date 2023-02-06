@@ -39,6 +39,9 @@ const Header = (props: Props) => {
             <Link href="/dao">{ Number(balance) >= 0.1 ? "DAO" : "Join the DAO"}</Link>
           </li>
           <li className={styles.listElement}>
+            <Link href="/listFontsDao">DAO Font List</Link>
+          </li>
+          <li className={styles.listElement}>
             <Wallet
               handleWalletConnected={handleWalletConnected}
               accountConnected={accountConnected}

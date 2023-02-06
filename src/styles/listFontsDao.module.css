@@ -1,0 +1,29 @@
+.Dao {
+    text-align: center;
+}
+
+.h1Alignment {
+    text-align: left;
+    margin-left: 10rem;
+    margin-bottom: 3rem;
+}
+.h2Alignment {
+    text-align: left;
+    margin-left: 10rem;
+    margin-top: 3rem;
+    font-size: 28px;
+}
+.spanAlignment {
+    font-size: 20px;
+    display: block;
+    text-align: left;
+    margin-left: 10rem;
+    line-height: 28px;
+}
+.fontList {
+    text-align: left;
+    margin-left: 10rem;
+    line-height: 28px;
+    font-size: 20px;
+    flex-basis: 50%;
+}
