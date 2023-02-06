@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/FontSelector.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/FontMetadata.js"],
   "exclude": ["node_modules"]
 }

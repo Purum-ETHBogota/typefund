@@ -6,6 +6,12 @@
     height: 34px;
   }
   
+  .wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
   /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;

@@ -1,6 +1,13 @@
 import Head from "next/head";
-import Image from "next/image";
 import FontView from "@/components/FontView";
+import fontsMetadata from "@/components/FontMetadata";
+
+type FontType = {
+  weight: number[];
+  italic: boolean;
+  name: string;
+  author: string;
+};
 
 const Home = () => {
   return (
@@ -12,11 +19,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <FontView />
-        <h1>Hola vale, soy una prueba</h1>
+        {fontsMetadata.map((font: FontType, idx: number) => (
+          <FontView key={idx} font={font} />
+        ))}
       </main>
     </>
   );
-}
+};
 
 export default Home;

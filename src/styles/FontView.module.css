@@ -1,0 +1,18 @@
+.fontWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 50px 100px;
+    min-height: 400px;
+    background-color: white;
+    color: #282828;
+    border-bottom: 1px solid #282828;
+}
+
+.configFont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
