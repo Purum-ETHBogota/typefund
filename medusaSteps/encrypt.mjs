@@ -16,65 +16,58 @@ const signer = new ethers.Wallet(
   process.env.PRIVATE_KEY_1
 ).connect(provider)
 
-//const applicationAddress = '0x667beba358592b285A67ff9F984bed5191d0B248'
-//const applicationAddress = '0x3A408835c243C892f1eD7c3D4184c5593181EC93'
-
 const medusa = await Medusa.init(medusaAddress, signer)
-// console.log('mmm...')
-// console.log(medusa)
 
 const medusaPublicKey = await medusa.fetchPublicKey()
-console.log(`medusa public key: ${medusaPublicKey}`)
 
-//Lets encrypt!!!!!!!!!:
+//Lets encrypt our data!
 const plaintext = 'This is a cool font !!'
-
 const buff = new TextEncoder().encode(plaintext)
 
-//console.log(`buff: ${buff}`)
-
-//Encrypt data towards Medusa
+//Encrypt data with Medusa
 const { encryptedData, encryptedKey } = await medusa.encrypt(
   buff,
   applicationAddress
 )
 console.log(`encryptedData: ${encryptedData}`)
-//console.log(`encryptedKey: ${JSON.stringify(encryptedKey)}`)
 
 //Encrypt to medusa
 //Now we interact with the app contract
 //We create a listing and set the "policy"
 //Here we pass the encryptedkey and submit it to medusa
 
-const onlyFiles = new ethers.Contract(applicationAddress, abi, signer)
+const typeFundMarket = new ethers.Contract(applicationAddress, abi, signer)
 
-try {
-  const price = ethers.utils.parseEther('0.01')
-  const result = await onlyFiles.createListing(
-    encryptedKey,
-    'test3',
-    'description3',
-    price,
-    'ipfs link'
-  )
+const price = ethers.utils.parseEther('0.01')
 
-  await listenForTransactionMine(result, provider)
-  console.log('Done!')
-  console.log(`result: ${JSON.stringify(result)}`)
-} catch (error) {
-  console.log(error)
-}
+const result = await typeFundMarket.functions.createListing(
+  encryptedKey,
+  'test3',
+  'description3',
+  price,
+  'ipfs link'
+).then(transaction => {
+  console.log(transaction);
+  
+  // Listen to the 'DataSet' event
+  typeFundMarket.on('NewListing', (seller, cipherId, name, description, price, uri, event) => {
+    console.log(
+    `New Listing created: 
+    seller = ${seller}
+    cipherId = ${cipherId} 
+    name = ${name} 
+    description = ${description} 
+    price = ${price} 
+    uri = ${uri} 
+    blockNumber = ${event.blockNumber}`);
+  });
+})
+.catch(error => {
+  console.error(error);
+});
 
-function listenForTransactionMine(transactionResponse, provider) {
-  console.log(`Mining ${transactionResponse.hash}...`)
-  return new Promise((resolve, reject) => {
-    provider.once(transactionResponse.hash, (transactionReceipt) => {
-      console.log(
-        `Completed with ${transactionReceipt.confirmations} confirmations`
-      )
-      resolve()
-    })
-  })
 
-  //   return new Promise()
-}
+
+
+
+
