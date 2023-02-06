@@ -1,0 +1,43 @@
+.cartWrapper {
+    margin: 150px 100px;
+}
+
+.licenseWrapper {
+    margin-top: 50px;
+}
+
+.licenseTitle {
+    font-weight: 100;
+    margin-bottom: 30px;
+}
+
+.fontTitle {
+    font-weight: 100;
+    margin: 50px 0 30px;
+}
+
+.license {
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    justify-content: space-between;
+    padding: 30px;
+    border-top: 1px solid white;
+}
+
+.fontShown {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    border-top: 1px solid white;
+}
+
+.select {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.fontNameWrapper {
+    margin-left: 30px;
+}
