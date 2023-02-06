@@ -5,6 +5,16 @@ hardhat/node_modules
 hardhat/.env
 hardhat/cache
 hardhat/artifacts
+hardhat/.env.example
+hardhat/.gitattributes
+hardhat/.gitignore
+hardhat/.gitpod.yml
+hardhat/.npmignore
+hardhat/.prettierignore
+hardhat/.prettierrc
+hardhat/.solcover.js
+hardhat/.solhint.json
+hardhat/.solhintignore
 
 
 # dependencies

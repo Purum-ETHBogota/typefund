@@ -57,7 +57,7 @@ struct Listing {
     string uri;
 }
 
-contract OnlyFiles is IEncryptionClient, PullPayment {
+contract TypeFundMarket is IEncryptionClient, PullPayment {
     /// @notice The Encryption Oracle Instance
     IEncryptionOracle public oracle;
 
