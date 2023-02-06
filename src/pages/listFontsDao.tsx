@@ -12,8 +12,8 @@ const ListFontDao = (props: Props) => {
       const output = await lighthouse.getUploads(
         `${process.env.NEXT_PUBLIC_WALLET_ADDRESS}`
       );
-      console.log(JSON.stringify(output));
-      setFonts(output.data.uploads);
+      console.log('output ', output);
+      setFonts(output.data.upload);
     };
     deploy();
   }, []);
