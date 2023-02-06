@@ -5,7 +5,7 @@ import styles from "../styles/listFontsDao.module.css";
 type Props = {};
 
 const ListFontDao = (props: Props) => {
-  const [fonts, setFont] = useState([]);
+  const [fonts, setFonts] = useState<any[]>([]);
 
   useEffect(() => {
     const deploy = async () => {
@@ -13,7 +13,7 @@ const ListFontDao = (props: Props) => {
         `${process.env.NEXT_PUBLIC_WALLET_ADDRESS}`
       );
       console.log(JSON.stringify(output));
-      setFont(output.data.uploads);
+      setFonts(output.data.uploads);
     };
     deploy();
   }, []);
