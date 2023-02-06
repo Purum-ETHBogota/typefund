@@ -18,6 +18,7 @@ hardhat/.solhintignore
 
 #medusa
 medusaSteps/node_modules
+medusaSteps/.env
 
 # dependencies
 /node_modules
