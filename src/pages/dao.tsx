@@ -23,7 +23,7 @@ const Dao = (props: Props) => {
   const deploy = async(e:any) =>{
     // Push file to lighthouse node
     // Both file and folder supported by upload function
-    const output = await lighthouse.upload(e, "6d7fb042-c9a9-4e5c-a035-27b62377188e", progressCallback);
+    const output = await lighthouse.upload(e, `${process.env.NEXT_PUBLIC_KEY_HASH}`, progressCallback);
     console.log('File Status:', output);
     /*
       output:
