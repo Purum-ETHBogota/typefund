@@ -16,6 +16,8 @@ hardhat/.solcover.js
 hardhat/.solhint.json
 hardhat/.solhintignore
 
+#medusa
+medusaSteps/node_modules
 
 # dependencies
 /node_modules
