@@ -12,8 +12,7 @@ const provider = new ethers.providers.JsonRpcProvider(
   'https://api.hyperspace.node.glif.io/rpc/v1'
 )
 
-const signer = new ethers.Wallet(
-  process.env.PRIVATE_KEY_1
+const signer = new ethers.Wallet(process.env.PRIVATE_KEY_1
 ).connect(provider)
 
 const medusa = await Medusa.init(medusaAddress, signer)
@@ -42,14 +41,14 @@ const price = ethers.utils.parseEther('0.01')
 
 const result = await typeFundMarket.functions.createListing(
   encryptedKey,
-  'test3',
-  'description3',
+  'FontName',
+  'This font is designed to be easy to read',
   price,
-  'ipfs link'
+  'https://ipfs.io/ipfs/QmaiyzWd7uknfVUWJ4sZTaM9VSLoPLiFwULWghGAUNDdeu'
 ).then(transaction => {
   console.log(transaction);
   
-  // Listen to the 'DataSet' event
+  // Listen to the 'NewListing' event
   typeFundMarket.on('NewListing', (seller, cipherId, name, description, price, uri, event) => {
     console.log(
     `New Listing created: 
