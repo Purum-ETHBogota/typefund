@@ -1,5 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#hardhat
+hardhat/node_modules
+hardhat/.env
+hardhat/cache
+hardhat/artifacts
+
+
 # dependencies
 /node_modules
 /.pnp
