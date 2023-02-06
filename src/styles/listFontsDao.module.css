@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+.wrapper {
+    margin: 10px 10rem;
+}
+
+.font {
+    margin: 15px 0;
+}
+
 .h1Alignment {
     text-align: left;
     margin-left: 10rem;

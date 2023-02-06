@@ -4,7 +4,7 @@ import styles from "../styles/listFontsDao.module.css";
 
 type Props = {};
 
-const listFontDao = (props: Props) => {
+const ListFontDao = (props: Props) => {
   const [fonts, setFont] = useState([]);
 
   useEffect(() => {
@@ -28,37 +28,36 @@ const listFontDao = (props: Props) => {
         A minimum of 100$TYPE is required to submit proposals.
       </span>
       <h2 className={styles.h2Alignment}>Proposals</h2>
-
-      {fonts.map((font: any) => {
-        return (
-          <>
+      <div className={styles.wrapper}>
+        {fonts.map((font: any) => {
+          return (
             <>
               <div
                 style={{
-                  fontFamily: `MyCustomFont${font.cid}`,
-                  fontSize: "28px",
+                  alignItems: 'center',
+                  justifyContent: "space-between",
                   display: "flex",
                   flexWrap: "wrap",
                   width: "100%",
                 }}
               >
-                Look at this Text!
-              </div>
-              {font.fileName.replace(".ttf", "")}
-              <style>
-                {`
+                <div style={{ fontFamily: `MyCustomFont${font.cid}`, fontSize: "28px"}} className={styles.font}>Look at this Text!</div>
+                {font.fileName.replace(".ttf", "")}
+                <style>
+                  {`
                     @font-face {
                       font-family: 'MyCustomFont${font.cid}';
                       src: url('https://ipfs.io/ipfs/${font.cid}') format('truetype');
                     }
-                  `}
-              </style>
+                    `}
+                </style>
+              </div>
             </>
-          </>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default listFontDao;
+export default ListFontDao;
