@@ -32,24 +32,25 @@ const typeFundMarket = new ethers.Contract(applicationAddress, abi, signer)
 const price = ethers.utils.parseEther('0.01')
 
 //Change the cipherID--------------------[under here]
-const result = await typeFundMarket.buyListing(76, evmPoint, {
-  value: price,
-}).then(transaction => {
-  console.log(transaction);
-  
-  // Listen to the 'ListingDecryption' event
-  typeFundMarket.on('ListingDecryption', (requestId, cipher, event) => {
-    console.log(
-    `requestId = ${requestId}
+const result = await typeFundMarket
+  .buyListing(78, evmPoint, {
+    value: price,
+  })
+  .then((transaction) => {
+    console.log(transaction)
+
+    // Listen to the 'ListingDecryption' event
+    typeFundMarket.on('ListingDecryption', (requestId, cipher, event) => {
+      console.log(
+        `requestId = ${requestId}
     cipher = ${cipher} 
     
-    blockNumber = ${event.blockNumber}`);
-  });
-})
-.catch(error => {
-  console.error(error);
-});
-
-
+    blockNumber = ${event.blockNumber}`
+      )
+    })
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 
 //Now we need to listen to the event, in the event there is the encrypted key
