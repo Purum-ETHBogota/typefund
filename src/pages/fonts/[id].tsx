@@ -7,3 +7,5 @@ const Font = (props: Props) => {
     <div>Font</div>
   )
 }
+
+export default Font;
