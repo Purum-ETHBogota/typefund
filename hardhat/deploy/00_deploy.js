@@ -18,7 +18,7 @@ module.exports = async ({ deployments }) => {
     const simpleCoin = await SimpleCoin.deploy(tokensToBeMinted)
     await simpleCoin.deployed()
     console.log("SimpleCoin deployed to:", simpleCoin.address)
-*/
+    */
     //
     //Deploy TypeFundMarket
     //Oracle Medusa Address in HYPERSPACE: 0xb0dd3eb2374b21b6efacf41a16e25ed8114734e0
